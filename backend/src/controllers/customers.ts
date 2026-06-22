@@ -180,11 +180,13 @@ export const updateCustomer = async (
     next: NextFunction
 ) => {
     try {
+        const { name, phone, email } = req.body;
         const updatedUser = await User.findByIdAndUpdate(
             req.params.id,
-            req.body,
+            { name, phone, email },
             {
                 new: true,
+                runValidators: true,
             }
         )
             .orFail(
