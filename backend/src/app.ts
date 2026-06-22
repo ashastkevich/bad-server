@@ -29,8 +29,8 @@ app.use(urlencoded({ extended: true, limit: '10kb' }));
 app.use(json({ limit: '10kb' }));
 
 const generalLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
+    windowMs: 1000,
+    max: 20,
     standardHeaders: true,
     legacyHeaders: false,
 });
