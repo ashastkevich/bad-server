@@ -11,12 +11,12 @@ export const uploadFile = async (
     next: NextFunction
 ) => {
     if (!req.file) {
-        return next(new BadRequestError('Файл не загружен'))
+        return next(new BadRequestError('Файл не загружен'));
     }
 
     if (req.file.size < MIN_FILE_SIZE) {
         if (req.file.path) {
-            unlinkSync(req.file.path)
+            unlinkSync(req.file.path);
         }
         return next(new BadRequestError('Размер файла должен быть не менее 2 КБ'));
     }
